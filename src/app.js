@@ -7,6 +7,7 @@ const e = require('express')
 
 const app = express()
 
+const port =  process.env.PORT || 3000
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public')
 const viewsPath = path.join(__dirname, '../templates/views')
@@ -99,27 +100,6 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000.')
+app.listen(port, () => {
+    console.log(`Server is up on port ${port}.`)
 })
-
-// const address = process.argv[2]
-  
-//   if(!address){
-//     console.log('Provide an address!')
-//   }else {
-//   geocode(address, (error, {latitude, longitude, location}= {}) => {
-//     if(error){
-//       return console.log(error)
-//     } 
-   
-
-//     forecast(latitude, longitude, (error, forecastdata) => {
-//       if(error){
-//         return console.log(error)
-//       }
-//       console.log(latitude, longitude, location)
-//       console.log(forecastdata)
-//     })
-//   })
-// }
